@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap');
+.history {
+    background: url('./background.jpg');
+    animation: scroll 70s linear infinite;
+    height: 50rem;
+    min-width: 360px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+    perspective-origin: 50% 50%;
+}
+.navigation {
+    color: black;
+    font-size: 25px;
+    position: fixed;
+    display: flex;
+}
+li {
+    list-style: none;
+    margin-left: 4rem;
+}
+.about-us {
+    margin-left: 53rem;
+    color: black;
+    font-size: 35px;
+    font-style: oblique;
+    text-decoration: none;
+}
+.about-us:hover {
+    margin-left: 53rem;
+    color: burlywood;
+    font-size: 35px;
+    font-style: oblique;
+    text-decoration: none;
+}
+.contact {
+    color: black;
+    font-size: 35px;
+}
+.shop {
+    color: black;
+    font-size: 35px;
+}
+li {
+    margin-top: -1rem;
+    font-family: 'Dawning of a New Day', cursive;
+}
+a {
+    text-decoration: none;
+}
+
+@keyframes scroll {
+    100% {
+        background-position: 0px -3000px;
+    }
+}

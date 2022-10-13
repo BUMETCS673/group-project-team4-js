@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Abyssinica+SIL&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Peralta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+.prescription-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.75);
+}
+.form-for-upload {
+    display: flex;
+}
+.form-for-prescription-check {
+    height: 20rem;
+    width: 50rem;
+    margin: auto;
+    margin-top: 3rem;
+    background-color: white;
+    display: block;
+    border: 3px solid burlywood;
+}
+.nav-bar-form {
+    height: 3rem;
+    width: 100%;
+    background-color: black;
+    color: aliceblue;
+    margin-top: -1rem;
+}
+
+.nav-bar-form > .form-header {
+    text-align: center;
+    padding-top: 0.6rem;
+    font-family: 'Peralta', cursive;
+}
+label {
+    font-family: 'Abyssinica SIL', serif;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+}
+input {
+    height: 1.3rem;
+    margin-left: 0.3rem;
+    margin-top: 1.5rem;
+    width: 16rem;
+}
+
+.file-uploader {
+    margin-top: 5rem;
+}
+
+.submit-button {
+    padding: 0.3rem;
+    text-align: center;
+    margin-left: 20%;
+    margin-top: 1rem;
+    background-color: palevioletred;
+    color: aliceblue;
+    border: none;
+    width: 5rem;
+    height: 2rem;
+    font-family: 'Alkalami', serif;
+}
+.submit-button:hover {
+    padding: 0.3rem;
+    text-align: center;
+    margin-left: 20%;
+    margin-top: 1rem;
+    color: aliceblue;
+    background-color: purple;
+    border: none;
+    width: 5rem;
+    height: 2rem;
+    font-family: 'Alkalami', serif;
+}
+
+.close-button {
+    padding: 0.3rem;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: 1rem;
+    color: aliceblue;
+    background-color: palevioletred;
+    border: none;
+    height: 2rem;
+    width: 5rem;
+    font-family: 'Alkalami', serif;
+}
+
+.close-button:hover {
+    padding: 0.3rem;
+    text-align: center;
+    margin-left: 30%;
+    margin-top: 1rem;
+    color: aliceblue;
+    background-color: purple;
+    border: none;
+    height: 2rem;
+    width: 5rem;
+    font-family: 'Alkalami', serif;
+}
+
+.unverified {
+    color: red;
+    margin-left: 17rem;
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-family: 'Oswald', sans-serif;
+}
+.verified {
+    color: green;
+    margin-left: 17rem;
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-family: 'Oswald', sans-serif;
+}

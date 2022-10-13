@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkalami&display=swap');
+#medicines {
+    margin-left: 5rem;
+    width: 10rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    margin-top: 3rem;
+    font-family: 'Alkalami', serif;
+    border-radius: 20%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    padding-left: 1rem;
+}
+option {
+    height: 2rem;
+    font-size: 1rem;
+}

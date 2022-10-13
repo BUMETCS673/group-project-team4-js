@@ -1,15 +1,25 @@
 import './App.css';
+import Intro from './Intro/Intro';
+import AuthContext from './ContextApi/AuthContext';
+import WelcomePage from './WelcomePage/WelcomePage';
+import Cart from './Cart/Cart';
 
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import logo from './assets/logo.png';
+import Display from './Display/Display';
 
 function App() {
     const [count, setCount] = useState(0);
+    const cxt = useContext(AuthContext);
 
     return (
         <div className="App">
             <img src={logo} />
+            <Intro></Intro>
+            <WelcomePage></WelcomePage>
+            {cxt.showCart && <Cart></Cart>}
+            <Display></Display>
         </div>
         // <div className="App">
         //   <header className="App-header">

@@ -1,0 +1,20 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5rem;
+}
+.user-ui {
+    display: flex;
+}
+i {
+    border: none;
+    margin-left: 60rem;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+.background {
+    margin-top: -0.5rem;
+    background-image: url('https://wallpaper.dog/large/5490827.jpg');
+    background-repeat: no-repeat;
+    background-size: 400%;
+}

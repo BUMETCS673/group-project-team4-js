@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Headland+One&display=swap');
+.Individual-Items {
+    height: 350px;
+    width: 350px;
+    margin-left: 4rem;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image {
+    height: 7rem;
+    width: 7rem;
+    border: 1px solid white;
+    margin-left: 3.5rem;
+    border-radius: 50%;
+}
+.names {
+    margin-top: -1rem;
+    margin-left: 1rem;
+    font-family: 'Shrikhand', cursive;
+    font-size: 15px;
+}
+.brand-names {
+    margin-top: -3.5rem;
+    margin-left: 1rem;
+    font-size: 15px;
+    font-family: 'Shrikhand', cursive;
+}
+.price {
+    margin-top: -4.5rem;
+    margin-left: 1rem;
+    font-size: 15px;
+    font-family: 'Shrikhand', cursive;
+}
+.add {
+    width: 4rem;
+    height: 2rem;
+    margin-left: -7.5rem;
+    border: none;
+    border-radius: 30%;
+    background-color: aliceblue;
+    font-size: 1rem;
+    margin-top: -2.5rem;
+}

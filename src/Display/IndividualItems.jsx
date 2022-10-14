@@ -13,7 +13,7 @@ const IndividualItems = (props) => {
             <p className="names">Generic Name : {props.name}</p>
             <br></br>
             <p className="brand-names">Brand Name : {props.brand}</p>
-            <p className="price">Price per unit : ${props.price}</p>
+            <p className="price">Price per product : ${props.price}</p>
             <button className="add" onClick={addCartHandler}>
                 Add
             </button>

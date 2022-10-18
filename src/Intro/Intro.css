@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap');
 .history {
     background: url('./background.jpg');
-    animation: scroll 70s linear infinite;
     height: 50rem;
     min-width: 360px;
     width: 100%;

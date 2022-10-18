@@ -1,4 +1,5 @@
 import './App.css';
+import SearchBar from './SearchBar/SearchBar';
 import Intro from './Intro/Intro';
 import AuthContext from './ContextApi/AuthContext';
 import WelcomePage from './WelcomePage/WelcomePage';
@@ -16,6 +17,7 @@ function App() {
     return (
         <div className="App">
             <img src={logo} />
+            <SearchBar></SearchBar>
             <Intro></Intro>
             <WelcomePage></WelcomePage>
             {cxt.showCart && <Cart></Cart>}

@@ -16,7 +16,6 @@ function App() {
 
     return (
         <div className="App">
-            <img src={logo} />
             <SearchBar></SearchBar>
             <Intro></Intro>
             <WelcomePage></WelcomePage>

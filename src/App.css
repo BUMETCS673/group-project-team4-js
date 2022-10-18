@@ -60,14 +60,6 @@ button {
     color: var(--link);
 }
 
-img {
-    display: flex;
-    justify-content: flex-start;
-    width: 216px;
-    height: 58px;
-    left: 54px;
-    top: 11px;
-}
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);

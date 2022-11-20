@@ -4,7 +4,8 @@ import NavbarFC from '../components/navbar/navbar';
 import FooterFC from '../components/Footer';
 import Banner from '../pages/shopping/components/banner';
 import Filter from '../pages/shopping/components/Filter';
-import { Box } from '@mui/material';
+import { Box, Fab } from '@mui/material';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const ShoppingLayout: FC = () => {
     return (
@@ -17,6 +18,11 @@ const ShoppingLayout: FC = () => {
         >
             <NavbarFC />
             <Banner />
+
+            <Fab size="medium">
+                <ShoppingCartIcon></ShoppingCartIcon>
+            </Fab>
+
             <Box
                 sx={{
                     display: 'flex',

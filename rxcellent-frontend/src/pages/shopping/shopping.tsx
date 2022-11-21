@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import { Box } from '@mui/material';
+import { Badge, Box, Fab } from '@mui/material';
+//import ItemCard from './components/ItemCard/itemCard';
 import ItemCard from './components/ItemCard/itemCard';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import MED1 from '../../assets/Landing/Carousel/medCard1.png';
@@ -8,6 +9,7 @@ import MED3 from '../../assets/Landing/Carousel/medCard3.png';
 import MED4 from '../../assets/Landing/Carousel/medCard4.png';
 import MED5 from '../../assets/Landing/Carousel/medCard5.png';
 import MED6 from '../../assets/Landing/Carousel/medCard6.png';
+import { ShoppingCart } from '@mui/icons-material';
 
 const itemList = [
     {
@@ -133,6 +135,8 @@ const itemList = [
     }
 ];
 
+//const { openCart, cartQuantity } = useShoppingCart()
+
 const Shopping: FC = () => {
     return (
         <Box
@@ -140,6 +144,19 @@ const Shopping: FC = () => {
                 ml: '60px'
             }}
         >
+            <Fab>
+                <Badge
+                    badgeContent={4}
+                    color="error"
+                    anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right'
+                    }}
+                >
+                    <ShoppingCart fontSize="large" color="primary" />
+                </Badge>
+            </Fab>
+
             <Grid container columns={4} xs={4} sx={{ margin: '0 auto' }}>
                 {itemList.map((item, index) => (
                     <ItemCard

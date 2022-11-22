@@ -3,10 +3,13 @@ import './ItemCard.scss';
 import { FC, useState } from 'react';
 import { Box, Typography, IconButton, styled } from '@mui/material';
 import { AddCircleRounded, RemoveCircleRounded } from '@mui/icons-material';
+import { formatCurrency } from '@/pages/utils/formatCurrency';
+import { useShoppingCart } from '../../context/ShoppingCartContext';
 
 interface ItemProps {
+    id: number;
     medicine: string;
-    price: string;
+    price: number;
     img: any;
     qty?: number;
 }
@@ -21,7 +24,16 @@ const StyledQty = styled(Typography)(({ theme }) => ({
     fontSize: '20px'
 }));
 
-const ItemCard: FC<ItemProps> = ({ medicine, price, img, qty }: ItemProps) => {
+const ItemCard: FC<ItemProps> = ({ id, medicine, price, img, qty }: ItemProps) => {
+    // const {
+    //     getItemQuantity,
+    //     increaseCartQuantity,
+    //     decreaseCartQuantity,
+    //     removeFromCart
+    // } = useShoppingCart()
+
+    // const quantity = getItemQuantity(id)
+
     const [count, setCount] = useState(0);
     return (
         <Box
@@ -68,7 +80,7 @@ const ItemCard: FC<ItemProps> = ({ medicine, price, img, qty }: ItemProps) => {
                     alignSelf: 'flex-start'
                 }}
             >
-                {price}
+                {formatCurrency(price)}
             </p>
             <p
                 style={{
@@ -93,6 +105,7 @@ const ItemCard: FC<ItemProps> = ({ medicine, price, img, qty }: ItemProps) => {
                 <IconButton
                     color="primary"
                     onClick={() => setCount(count + 1)}
+                    // onClick={() => increaseCartQuantity(id)}
                     sx={{ zIndex: '1' }}
                 >
                     <AddCircleRounded sx={{ fontSize: '40px' }} />

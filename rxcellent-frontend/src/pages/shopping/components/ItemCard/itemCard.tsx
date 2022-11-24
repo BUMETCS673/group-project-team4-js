@@ -12,6 +12,7 @@ interface ItemProps {
     price: number;
     img: any;
     qty?: number;
+    key: number;
 }
 
 const StyledQty = styled(Typography)(({ theme }) => ({
@@ -24,7 +25,7 @@ const StyledQty = styled(Typography)(({ theme }) => ({
     fontSize: '20px'
 }));
 
-const ItemCard: FC<ItemProps> = ({ id, medicine, price, img, qty }: ItemProps) => {
+const ItemCard: FC<ItemProps> = ({ id, medicine, price, img, qty, key }: ItemProps) => {
     // const {
     //     getItemQuantity,
     //     increaseCartQuantity,
@@ -33,6 +34,8 @@ const ItemCard: FC<ItemProps> = ({ id, medicine, price, img, qty }: ItemProps) =
     // } = useShoppingCart()
 
     // const quantity = getItemQuantity(id)
+
+    // const { openCart, cartQuantity } = useShoppingCart()
 
     const [count, setCount] = useState(0);
     return (
@@ -105,7 +108,7 @@ const ItemCard: FC<ItemProps> = ({ id, medicine, price, img, qty }: ItemProps) =
                 <IconButton
                     color="primary"
                     onClick={() => setCount(count + 1)}
-                    // onClick={() => increaseCartQuantity(id)}
+                    //onClick={() => increaseCartQuantity(id)}
                     sx={{ zIndex: '1' }}
                 >
                     <AddCircleRounded sx={{ fontSize: '40px' }} />

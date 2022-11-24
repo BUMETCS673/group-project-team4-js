@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png';
 import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { AppBar, Toolbar, Button, IconButton, Container } from '@mui/material';
+import { AppBar, Toolbar, Button, IconButton, Container, Fab, Badge } from '@mui/material';
 import { FC } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -79,7 +79,12 @@ const StyledContainer = styled(Container)(({ theme }) => ({
 const NavbarFC: FC = () => {
     return (
         <>
-            <AppBar position="fixed" elevation={0} className="appbar" style={{ height: '80px', backgroundColor: 'white' }}>
+            <AppBar
+                position="fixed"
+                elevation={0}
+                className="appbar"
+                style={{ height: '80px', backgroundColor: 'white' }}
+            >
                 <Toolbar color="default" className="toolbar">
                     <NavLink to="/home">
                         <img src={logo} className="logo" />

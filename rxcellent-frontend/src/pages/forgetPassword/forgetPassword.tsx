@@ -65,7 +65,7 @@ const forgetPassword: FC = () => {
                         id="email"
                         {...register('email', {
                             required: true,
-                            validate: (value: any) => value === validateEmail(value)
+                            validate: (value: any) => validateEmail(value)
                         })}
                         label="email"
                         style={{ marginTop: '50px' }}

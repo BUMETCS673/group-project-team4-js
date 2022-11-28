@@ -1,6 +1,14 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { ShoppingCart } from '../components/ShoppingCart';
 
+/**
+ * Title: react-ts-shopping-cart
+ * Author: WebDevSimplified
+ * Date: June 9, 2022
+ * Availability: https://github.com/WebDevSimplified/react-ts-shopping-cart
+ * 
+ */
+
 type ShoppingCartProviderProps = {
     children: ReactNode;
 };

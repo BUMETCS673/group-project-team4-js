@@ -69,5 +69,5 @@
         "*.md": [
             "prettier --write"
         ]
-    },
+    }
 }

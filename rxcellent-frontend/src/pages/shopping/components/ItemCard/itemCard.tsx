@@ -5,6 +5,7 @@ import { Box, Typography, IconButton, styled } from '@mui/material';
 import { AddCircleRounded, RemoveCircleRounded } from '@mui/icons-material';
 import { formatCurrency } from '@/pages/utils/formatCurrency';
 import { useShoppingCart } from '../../context/ShoppingCartContext';
+import { posix } from 'path';
 
 interface ItemProps {
     id: number;
@@ -51,19 +52,23 @@ const ItemCard: FC<ItemProps> = ({ id, medicine, price, img, qty, key }: ItemPro
                 'alignItems': 'center',
                 'marginRight': '60px',
                 'marginBottom': '30px',
-                '&:hover': { boxShadow: '0px 6px 20px 4px rgba(0, 0, 0, 0.10)' }
+                '&:hover': {
+                    boxShadow: '0px 5px 20px 3px rgba(0, 0, 0, 0.07)',
+                    transform: 'translateY(-5px)'
+                }
             }}
         >
             <img
                 src={img}
                 style={{
-                    margin: '15px 0'
+                    margin: '15px 0',
+                    width: '150px'
                 }}
             />
             <p
                 style={{
                     width: '210px',
-                    height: '66px',
+                    maxHeight: '66px',
                     margin: '10px 15px',
                     fontSize: '16px',
                     display: '-webkit-box',

@@ -6,6 +6,10 @@ export const theme = createTheme({
             main: '#37b9c5',
             contrastText: '#fff'
         },
+        secondary: {
+            main: '#F7FEFF',
+            contrastText: '#000000'
+        },
         error: {
             main: '#ff5a5a'
         }
@@ -15,7 +19,9 @@ export const theme = createTheme({
             styleOverrides: {
                 root: {
                     borderRadius: '50px',
-                    boxShadow: 'none'
+                    boxShadow: 'none',
+                    textTransform: 'none',
+                    fontSize: 20
                 }
             }
         },
@@ -31,10 +37,16 @@ export const theme = createTheme({
                         },
                         '&:hover fieldset': {
                             border: '2px solid #37B9C5'
-                        },
-                        '& input': {
-                            color: '#37B9C5'
                         }
+                    }
+                }
+            }
+        },
+        MuiLink: {
+            styleOverrides: {
+                root: {
+                    '&:hover': {
+                        cursor: 'pointer'
                     }
                 }
             }

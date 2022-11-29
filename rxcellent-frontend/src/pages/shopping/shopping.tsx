@@ -176,7 +176,7 @@ const Shopping: FC = () => {
                             <Skeleton variant="rounded" width={240} height={420} key={index} />
                         ) : (
                             <ItemCard
-                                medicine={item.names}
+                                medicine={item.brand_names}
                                 price={item.price}
                                 img={item.img}
                                 key={index}

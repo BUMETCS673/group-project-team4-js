@@ -1,5 +1,5 @@
-import { KeyboardArrowUpOutlined } from '@mui/icons-material';
-import { Box, Button, Collapse, IconButton, Link, styled, Typography } from '@mui/material';
+import { KeyboardArrowUpOutlined, ShoppingCartOutlined } from '@mui/icons-material';
+import { Box, Collapse, Fab, IconButton, Link, styled, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useNavigate, createSearchParams } from 'react-router-dom';
 import type { FC } from 'react';
@@ -7,7 +7,11 @@ import type { FC } from 'react';
 const StyledDiv = styled('div')(({ theme }) => ({
     minWidth: '220px',
     height: '790px',
-    backgroundColor: '#E4F4F5'
+    backgroundColor: '#E4F4F5',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start'
 }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -98,8 +102,15 @@ const Filter: FC = () => {
                     <MenuLink category={category} key={index} />
                 ))}
             </Collapse>
-            <hr color="#D1D5DB"></hr>
-
+            <hr color="white"></hr>
+            <Fab
+                size="large"
+                color="primary"
+                aria-label="shop"
+                sx={{ position: 'fixed', marginTop: '310px', marginLeft: '80px', zIndex: 1 }}
+            >
+                <ShoppingCartOutlined fontSize="large"></ShoppingCartOutlined>
+            </Fab>
             <Collapse in={showBrand} onClick={() => setShowBrand((prev) => !prev)}>
                 def
             </Collapse>

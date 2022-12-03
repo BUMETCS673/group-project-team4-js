@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { Box, Skeleton } from '@mui/material';
+import { Box, Fab, Skeleton, styled } from '@mui/material';
 import ItemCard from './components/ItemCard/itemCard';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -12,6 +12,7 @@ import MED3 from '../../assets/Landing/Carousel/medCard3.png';
 import MED4 from '../../assets/Landing/Carousel/medCard4.png';
 import MED5 from '../../assets/Landing/Carousel/medCard5.png';
 import MED6 from '../../assets/Landing/Carousel/medCard6.png';
+import { ShoppingCartOutlined } from '@mui/icons-material';
 
 const itemList = [
     {
@@ -137,6 +138,15 @@ const itemList = [
     }
 ];
 
+const StyledFab = styled(Fab)(() => ({
+    position: 'fixed',
+    zIndex: 1,
+    left: '3%',
+    top: '50%',
+    height: '5rem',
+    width: '5rem'
+}));
+
 const Shopping: FC = () => {
     const [searchParams] = useSearchParams();
     const [keyword, setKeyword] = useState('');
@@ -166,10 +176,15 @@ const Shopping: FC = () => {
     return (
         <Box
             sx={{
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
                 ml: '60px'
             }}
         >
-            <Grid container columns={4} xs={4} sx={{ margin: '0 auto' }}>
+            <Grid container columns={4} xs={4} sx={{ width: '99%', margin: '0 auto' }}>
                 {data &&
                     data.data.map((item: any, index: number) =>
                         isLoading ? (
@@ -184,6 +199,9 @@ const Shopping: FC = () => {
                         )
                     )}
             </Grid>
+            <StyledFab color="primary" aria-label="cart">
+                <ShoppingCartOutlined sx={{ fontSize: '400%' }} />
+            </StyledFab>
         </Box>
     );
 };

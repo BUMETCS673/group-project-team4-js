@@ -103,14 +103,6 @@ const Filter: FC = () => {
                 ))}
             </Collapse>
             <hr color="white"></hr>
-            <Fab
-                size="large"
-                color="primary"
-                aria-label="shop"
-                sx={{ position: 'fixed', marginTop: '310px', marginLeft: '80px', zIndex: 1 }}
-            >
-                <ShoppingCartOutlined fontSize="large"></ShoppingCartOutlined>
-            </Fab>
             <Collapse in={showBrand} onClick={() => setShowBrand((prev) => !prev)}>
                 def
             </Collapse>

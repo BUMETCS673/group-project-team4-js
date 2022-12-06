@@ -1,5 +1,5 @@
 import { get, post } from '@/service/index';
-import { GET_PRESCRIPTION_URL, GET_ONE_ITEM_BY_KEY } from './Landing.api';
+import { GET_PRESCRIPTION_URL, GET_ONE_ITEM_BY_KEY } from './prescriptionResult.api';
 
 export const getPrescriptionApi = async (rxNumber: String | null, date: string | undefined) => {
     return post(GET_PRESCRIPTION_URL, { prescriptionNumber: rxNumber, patientDateOfBirth: date });

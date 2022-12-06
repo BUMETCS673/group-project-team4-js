@@ -3,42 +3,59 @@ import { Modal } from '@mantine/core';
 import { Box, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
-import { getOneItemApi } from './landing.service';
-
+import { getOneItemApi, getPrescriptionApi } from './landing.service';
 interface PrescriptionModalProps {
     opened: boolean;
     onClose: () => void;
-    data?: any;
-    mdData?: any;
+    // prescription: any;
+    // medicine: any;
+    // date?: string;
+    // rxNumber: string;
+    // handleFetch: boolean;
+    name: any;
+    dob: any;
+    rxNumber: any;
+    meds: any;
 }
 
 // add a prescirption modal
 const PrescriptionModal: FC<PrescriptionModalProps> = ({
-    data,
-    mdData,
+    // date,
+    // rxNumber,
+    // handleFetch,
+    name,
+    dob,
+    rxNumber,
+    meds,
     opened = false,
     onClose
 }) => {
     const navigate = useNavigate();
 
-    // const getOneItemByKey = async () => {
-    //     const meds: any = [];
-    //     if (res !== undefined) {
-    //         res.data.medicines.forEach(async (element: any) => {
-    //             const med: any = await getOneItemApi(element.key);
-    //             meds.push(med.name + '  X' + element.quantity);
-    //         });
-    //         return meds;
-    //     }
-    // };
+    // const {data:prescription, isSuccess} = useQuery(
+    //     ['prescription', rxNumber],
+    //     async () => {
+    //         const result: any = await getPrescriptionApi(rxNumber, date);
+    //         return result;
+    // },
+    // {enabled: handleFetch});
 
-    // const { data, refetch } = useQuery(['oneItemByKey'], getOneItemByKey, {
-    //     enabled: true
-    // });
+    // const mQuery = useQuery(
+    //     ['medicine', prescription?.data.key],
+    //     () => {
+    //         const list: any = [];
+    //         prescription.data.medicines.forEach(
+    //             async (e:any) => {
+    //                 const result: any = await getOneItemApi(e.key);
+    //                 list.push(result.data.name+ ' ×'+e.quantity);
+    //         })
+    //         return list;
+    //     },
+    //     {enabled: isSuccess})
 
-    // useEffect(() => {
-    //     getOneItemByKey();
-    // }, []);
+    useEffect(() => {
+        console.log(meds);
+    });
 
     return (
         <Modal
@@ -67,28 +84,25 @@ const PrescriptionModal: FC<PrescriptionModalProps> = ({
                     }}
                 >
                     <p>
-                        Name:<b>{data?.patientName}</b>
+                        Name:<b>{name}</b>
                     </p>
                     <p>
-                        Date of birth: <b>{data?.patientDateOfBirth}</b>
+                        Date of birth: <b>{dob}</b>
                     </p>
                     <p>
-                        Rx number: <b>{data?.prescriptionNumber}</b>
+                        Rx number: <b>{rxNumber}</b>
                     </p>
                     {/* <p>
                         Physician: <b>Dr. Andrew Lee</b>
                     </p> */}
-                    <p>
-                        Medications:{' '}
-                        {/* <b>Bayer, Headache Aspirin, Pain Relief and Fever Reduction, 500mg;</b> */}
-                        <ul>
-                            {mdData?.forEach((medicineInfo: string) => {
-                                <li>
-                                    <b>{medicineInfo}</b>
-                                </li>;
-                            })}
-                        </ul>
-                    </p>
+                    <p>Medications: </p>
+                    <span>
+                        {meds?.forEach((item: string) => (
+                            <p>
+                                <b>{item}</b>
+                            </p>
+                        ))}
+                    </span>
                 </Box>
                 <Button
                     variant="contained"

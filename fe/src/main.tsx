@@ -16,6 +16,7 @@ import CheckoutLayout from './layouts/CheckoutLayout';
 import cartReducer from './features/Cart';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
+import PrescriptionResult from '@pages/prescriptionResult/PrescriptionResult';
 
 const store = configureStore({
     reducer: {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
                 element: <Landing />
             }
         ]
+    },
+    {
+        path: 'prescription-result',
+        element: <PrescriptionResult />
     },
     {
         path: 'shop',

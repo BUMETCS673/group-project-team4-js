@@ -1,7 +1,7 @@
 import './Landing.scss';
 
-import type { FC } from 'react';
-import { useState } from 'react';
+import { FC, useEffect, useState } from 'react';
+
 import { Box, TextField, styled, Button } from '@mui/material';
 import { MedicalServicesRounded, CakeRounded } from '@mui/icons-material';
 import { Dayjs } from 'dayjs';
@@ -26,40 +26,78 @@ import img7 from '../../assets/Landing/image28.png';
 import { useQuery } from '@tanstack/react-query';
 import { getOneItemApi, getPrescriptionApi } from './landing.service';
 
+interface PrescriptionType {
+    name: string;
+    dob: string;
+    rxNumber: string;
+    meds: string[];
+}
+
 const Landing: FC = () => {
     const navigate = useNavigate();
     const [date, setDate] = useState<Dayjs | null>(null);
-    const [rxNumber, setRxNumber] = useState<String | null>(null);
+    const [rxNumber, setRxNumber] = useState('');
     const [isModalOpened, setIsModalOpened] = useState(false);
+    const [handleFetch, setHandleFetch] = useState(false);
+    // const getPrescription = async () => {
+    //     const dateStr = date?.format('MM/DD/YYYY').toString();
+    //     const result: any = await getPrescriptionApi(rxNumber, dateStr);
+    //     console.log('pQuery', result);
+    //     return result;
+    // };
 
-    const getPrescription = async () => {
-        const dateStr = date?.format('MM/DD/YYYY').toString();
-        const result: any = await getPrescriptionApi(rxNumber, dateStr);
-        return result;
-    };
+    // const pQuery = useQuery(['prescriptions'], getPrescription, {
+    //     enabled: isModalOpened
+    // });
 
-    const pQuery = useQuery(['prescriptions'], getPrescription, {
-        enabled: false
-    });
+    // const getOneItemByKey = async () => {
+    //     const list: any = [];
+    //     if (pQuery !== undefined) {
+    //         pQuery.data.data.medicines.forEach(async(element: any) => {
+    //             const med: any = await getOneItemApi(element.key);
+    //             list.push(med.data.name + '  X' + element.quantity);
+    //         });
+    //         return list;
+    //     }
+    // };
 
-    const getOneItemByKey = async () => {
-        const list: any = [];
-        if (pQuery !== undefined) {
-            pQuery.data.data.medicines.forEach(async (element: any) => {
+    // const mQuery = useQuery(['medicines'], getOneItemByKey, {
+    //     enabled: pQuery.isSuccess
+    // });
+
+    const prescriptionQuery = useQuery(
+        ['prescription', rxNumber],
+        async () => {
+            const prescription: PrescriptionType = {
+                name: '',
+                dob: '',
+                rxNumber: '',
+                meds: []
+            };
+            const dateStr = date?.format('MM/DD/YYYY').toString();
+            const pRes: any = getPrescriptionApi(rxNumber, dateStr);
+            prescription.name = pRes.data.patientName;
+            prescription.dob = pRes.data.patientDateOfBirth;
+            prescription.rxNumber = pRes.data.prescriptionNumber;
+            pRes.data.medicines.forEach(async (element: any) => {
                 const med: any = await getOneItemApi(element.key);
-                list.push(med.data.name + '  X' + element.quantity);
+                prescription.meds.push(med.data.name + ' ×' + element.quantity);
             });
-            setIsModalOpened(true);
-            return list;
-        }
-    };
+            return prescription;
+        },
+        { enabled: isModalOpened }
+    );
 
-    const mQuery = useQuery(['medicines'], getOneItemByKey, {
-        enabled: pQuery.isSuccess
-    });
+    // useEffect(() => {
+    //     if (prescriptionQuery.isSuccess) {
+    //         setIsModalOpened(true);
+    //     }
+    // }, [prescriptionQuery.isSuccess]);
 
-    const handleGetPrescriptionClick = async () => {
-        await pQuery.refetch();
+    const handleGetPrescriptionClick = () => {
+        localStorage.setItem('rxNumber', rxNumber);
+        localStorage.setItem('dob', date?.format('MM/DD/YYYY').toString() || '');
+        navigate('/prescription-result');
     };
 
     return (
@@ -431,12 +469,6 @@ const Landing: FC = () => {
                     </Box>
                 </Box>
             </Box>
-            <PrescriptionModal
-                data={pQuery?.data}
-                mdData={mQuery?.data}
-                opened={isModalOpened}
-                onClose={() => setIsModalOpened(false)}
-            />
         </>
     );
 };

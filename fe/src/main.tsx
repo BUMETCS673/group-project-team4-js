@@ -10,9 +10,19 @@ import Register from './pages/register/register';
 import ForgetPassword from './pages/forgetPassword/forgetPassword';
 import Shopping from './pages/shopping/shopping';
 import ShoppingLayout from './layouts/ShoppingLayout';
+import Doctor from '@pages/doctor/Doctor';
 import { ThemeProvider } from '@mui/material';
 import { theme } from '@configs/theme';
 import CheckoutLayout from './layouts/CheckoutLayout';
+import cartReducer from './features/Cart';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+
+const store = configureStore({
+    reducer: {
+        cart: cartReducer
+    }
+});
 
 const router = createBrowserRouter([
     {
@@ -54,13 +64,19 @@ const router = createBrowserRouter([
     {
         path: 'forget',
         element: <ForgetPassword />
+    },
+    {
+        path: 'doctor',
+        element: <Doctor />
     }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
-            <RouterProvider router={router} />
+            <Provider store={store}>
+                <RouterProvider router={router} />
+            </Provider>
         </ThemeProvider>
     </QueryClientProvider>
 );

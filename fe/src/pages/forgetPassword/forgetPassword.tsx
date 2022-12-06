@@ -31,8 +31,8 @@ const forgetPassword: FC = () => {
             setErrorMsg('your email is error!');
         } else {
             navigate('/login');
+            reset();
         }
-        reset();
     };
     return (
         <Grid

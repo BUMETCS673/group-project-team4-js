@@ -13,16 +13,17 @@ import {
 } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import './login.css';
-import { Login as LoginIcon } from '@mui/icons-material';
+import { Login as LoginIcon, Token } from '@mui/icons-material';
 import React, { useState, FC } from 'react';
 import { loginApi } from '../../service/user/user.service';
 import { LoginInputs } from '../../service/user/user';
 import { getValue } from '../utils/getValue';
 import { useNavigate } from 'react-router-dom';
-
-import { setCookie } from '../utils/cookie';
+import { useDispatch } from 'react-redux';
+import { setToken, setIdenity, setUsername } from '@/features/User';
 
 const Login: FC = () => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const [errorMsg, setErrorMsg] = useState<string>();
 
@@ -36,10 +37,14 @@ const Login: FC = () => {
     const onSubmit = async (data: LoginInputs) => {
         if (data.idenity == null) data.idenity = 0;
         const result = await loginApi(data);
+        console.log(result);
         if (getValue(result, 'data.status', 0) !== 1) {
             setErrorMsg('your username or password or idenity is error!');
         } else {
-            setCookie('token', getValue(result, 'data.data.token', ''));
+            const userdata = result?.data;
+            dispatch(setToken(userdata?.token));
+            dispatch(setIdenity(userdata?.idenity));
+            dispatch(setUsername(userdata?.username));
             navigate('/');
             reset();
         }

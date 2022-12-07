@@ -15,12 +15,14 @@ import { ThemeProvider } from '@mui/material';
 import { theme } from '@configs/theme';
 import CheckoutLayout from './layouts/CheckoutLayout';
 import cartReducer from './features/Cart';
+import userReducer from './features/User';
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 const store = configureStore({
     reducer: {
-        cart: cartReducer
+        cart: cartReducer,
+        user: userReducer
     }
 });
 

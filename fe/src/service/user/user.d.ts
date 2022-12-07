@@ -1,7 +1,8 @@
 export interface LoginInputs {
     username: string;
     password: String;
-    idenity: Number | String;
+    idenity?: Number | String;
+    token?: String;
 }
 
 export interface RegisterInputs {

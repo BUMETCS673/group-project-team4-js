@@ -3,6 +3,8 @@ import logo from '../../assets/logo.png';
 import { styled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
     AppBar,
     Alert,
@@ -89,6 +91,8 @@ const NavbarFC: FC = () => {
     const navigate = useNavigate();
     const [keyword, setKeyword] = useState('');
     const [showAlert, setShowAlert] = useState(false);
+    const userData = useSelector((state: any) => state.user.value);
+    console.log(userData);
 
     const handleSearch = () => {
         if (!keyword) {
@@ -139,7 +143,7 @@ const NavbarFC: FC = () => {
                         </SearchIconWrapper>
                     </Search>
                     <StyledButtonGroup>
-                        <Button
+                        {/* <Button
                             variant="text"
                             color="primary"
                             style={{
@@ -149,7 +153,8 @@ const NavbarFC: FC = () => {
                             }}
                         >
                             Are you a doctor?
-                        </Button>
+                        </Button> */}
+                        {}
                         <Link to="/login" style={{ textDecoration: 'none' }}>
                             <Button
                                 variant="outlined"
@@ -163,7 +168,7 @@ const NavbarFC: FC = () => {
                                     textTransform: 'none'
                                 }}
                             >
-                                Sign in/up
+                                {userData.username ? userData.username : 'Sign in/up'}
                             </Button>
                         </Link>
                     </StyledButtonGroup>

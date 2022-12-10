@@ -154,7 +154,6 @@ const NavbarFC: FC = () => {
                         >
                             Are you a doctor?
                         </Button> */}
-                        {}
                         <Link to="/login" style={{ textDecoration: 'none' }}>
                             <Button
                                 variant="outlined"

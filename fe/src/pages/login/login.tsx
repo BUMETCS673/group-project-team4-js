@@ -45,7 +45,7 @@ const Login: FC = () => {
             dispatch(setToken(userdata?.token));
             dispatch(setIdenity(userdata?.idenity));
             dispatch(setUsername(userdata?.username));
-            navigate('/');
+            navigate('/doctor');
             reset();
         }
     };
